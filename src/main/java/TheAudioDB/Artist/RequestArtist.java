@@ -4,7 +4,7 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class RequestArtist {
-    String artistName  ;
+    String artistName;
 
     public String Request(String artistName) throws UnirestException {
         this.artistName = artistName;
