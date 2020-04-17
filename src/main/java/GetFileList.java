@@ -14,7 +14,7 @@ public class GetFileList {
     public void getListFiles(String path) throws NullPointerException {
         File f = new File(path);
         for (File s : f.listFiles()) {
-            if (s.isFile() && s.toString().contains("mp3") && !s.toString().contains("jpg")) {
+            if (s.isFile() && s.toString().contains("mp3")) {
                 listWithFileNames.add(s);
             } else if (s.isDirectory()) {
                 getListFiles(s.getAbsolutePath());
