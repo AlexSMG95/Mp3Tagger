@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class GetFileList {
 
     String path;
-    public static ArrayList<File> listWithFileNames = new ArrayList<>();
+    public static ArrayList<File> listWithFileNames = new ArrayList<File>();
 
     public GetFileList(String path){
         this.path = path;
@@ -33,7 +33,7 @@ public class GetFileList {
     public String getArtistName (int file) {
         String artistName = "";
         getFileName(file);
-        for (int i = listWithFileNames.get(file).toString().lastIndexOf("\\") + 1; i < listWithFileNames.get(file).toString().lastIndexOf("-"); i ++) {
+        for (int i = listWithFileNames.get(file).toString().lastIndexOf("\\") + 1; i < listWithFileNames.get(file).toString().lastIndexOf("-") - 1; i ++) {
             artistName += listWithFileNames.get(file).toString().charAt(i);
         }
         return artistName;
@@ -42,10 +42,10 @@ public class GetFileList {
     public String getTrackName (int file) {
         String TrackName = "";
         getFileName(file);
-        for (int i = listWithFileNames.get(file).toString().lastIndexOf("-") + 2; i < listWithFileNames.get(file).toString().length(); i ++) {
+        for (int i = listWithFileNames.get(file).toString().lastIndexOf("-") + 2; i < listWithFileNames.get(file).toString().lastIndexOf("."); i ++) {
             TrackName += listWithFileNames.get(file).toString().charAt(i);
         }
-        return TrackName.replaceAll(".mp3", "");
+        return TrackName;
     }
 
     public String getPath() {

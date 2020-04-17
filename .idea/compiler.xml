@@ -9,5 +9,6 @@
         <module name="Mp3Tagger" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="10" />
   </component>
 </project>

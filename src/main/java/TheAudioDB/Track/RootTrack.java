@@ -2,7 +2,7 @@ package TheAudioDB.Track;
 
 import java.util.List;
 
-public class Root {
+public class RootTrack {
 
 
 

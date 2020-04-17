@@ -2,7 +2,7 @@ package TheAudioDB.Artist;
 
 import java.util.List;
 
-public class Root {
+public class RootArtist {
 
     private List<Artist> artists = null;
 
