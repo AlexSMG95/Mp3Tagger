@@ -12,9 +12,9 @@ public class RequestTrack {
     public String Request(String artistName, String trackName) throws UnirestException {
         this.artistName = artistName;
         this.trackName = trackName;
-        String json = Unirest.get("https://www.theaudiodb.com/api/v1/json/1/searchtrack.php?s={Artist Name}&t={Single Name}")
-                .routeParam("Artist Name", artistName)
-                .routeParam("Single Name", trackName)
+        String json = Unirest.get("https://www.theaudiodb.com/api/v1/json/1/searchtrack.php?s={Artist_Name}&t={Single_Name}")
+                .routeParam("Artist_Name", artistName)
+                .routeParam("Single_Name", trackName)
                 .asString()
                 .getBody();
         return json;
