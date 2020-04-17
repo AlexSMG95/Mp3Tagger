@@ -4,13 +4,14 @@ import java.util.ArrayList;
 public class GetFileList {
 
     String path;
-    private static ArrayList<File> listWithFileNames = new ArrayList<>();
+    public static ArrayList<File> listWithFileNames = new ArrayList<>();
 
     public GetFileList(String path){
         this.path = path;
+        getListFiles(path);
     }
 
-    public static void getListFiles(String path) {
+    public void getListFiles(String path) throws NullPointerException {
         File f = new File(path);
         for (File s : f.listFiles()) {
             if (s.isFile() && s.toString().contains("mp3") && !s.toString().contains("jpg")) {
@@ -21,8 +22,34 @@ public class GetFileList {
         }
     }
 
+    public String getFileName (int file) {
+        String fileName = "";
+        for (int i = listWithFileNames.get(file).toString().lastIndexOf("\\") + 1; i < listWithFileNames.get(file).toString().length(); i++) {
+            fileName += listWithFileNames.get(file).toString().charAt(i);
+        }
+        return fileName;
+    }
+
+    public String getArtistName (int file) {
+        String artistName = "";
+        getFileName(file);
+        for (int i = listWithFileNames.get(file).toString().lastIndexOf("\\") + 1; i < listWithFileNames.get(file).toString().lastIndexOf("-"); i ++) {
+            artistName += listWithFileNames.get(file).toString().charAt(i);
+        }
+        return artistName;
+    }
+
+    public String getTrackName (int file) {
+        String TrackName = "";
+        getFileName(file);
+        for (int i = listWithFileNames.get(file).toString().lastIndexOf("-") + 2; i < listWithFileNames.get(file).toString().length(); i ++) {
+            TrackName += listWithFileNames.get(file).toString().charAt(i);
+        }
+        return TrackName.replaceAll(".mp3", "");
+    }
+
     public String getPath() {
-        return path;
+        return path +"\\";
     }
 
     public void setPath(String path) {
