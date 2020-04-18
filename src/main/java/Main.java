@@ -2,8 +2,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-import TheAudioDB.Artist.RequestArtist;
-import TheAudioDB.Artist.RootArtist;
+import TheAudioDB.Album.RequestAlbum;
+import TheAudioDB.Album.RootAlbum;
 import TheAudioDB.Track.RequestTrack;
 import TheAudioDB.Track.RootTrack;
 import com.google.gson.Gson;
@@ -22,26 +22,19 @@ public class Main {
 
         String path = scanner.nextLine();
         GetFileList getFile = new GetFileList(path);
-        int i = 0;
-        for (File mp3 : GetFileList.listWithFileNames) {
-            Gson gson = new GsonBuilder().create();
-            RequestArtist responseArtist = new RequestArtist();
-            RequestTrack responseTrack = new RequestTrack();
-            RootArtist rootArtist = gson.fromJson(responseArtist.Request(getFile.getArtistName(i)), RootArtist.class);
-            RootTrack rootTrack = gson.fromJson(responseTrack.Request(getFile.getArtistName(i), getFile.getTrackName(i)), RootTrack.class);
-            System.out.println(getFile.getArtistName(i));
-            System.out.println(getFile.getTrackName(i));
-            i++;
+        for (int i = 0; i < GetFileList.listWithFileNames.size(); i++) {
+            File mp3 = new File(String.valueOf(GetFileList.listWithFileNames.get(i)));
             try {
-                TagSetter.setTag(mp3, rootTrack.getTrack().get(0).getStrTrack(), rootTrack.getTrack().get(0).getStrArtist(), rootTrack.getTrack().get(0).getStrAlbum());
-                System.out.println(rootTrack.getTrack().get(0).getStrTrack());
-                System.out.println(rootTrack.getTrack().get(0).getStrArtist());
+            Gson gson = new GsonBuilder().create();
+            RequestTrack responseTrack = new RequestTrack();
+            RootTrack rootTrack = gson.fromJson(responseTrack.Request(getFile.getArtistName(i), getFile.getTrackName(i)), RootTrack.class);
+            TagSetterName.setTag(mp3, rootTrack.getTrack().get(0).getStrTrack(), rootTrack.getTrack().get(0).getStrArtist(), rootTrack.getTrack().get(0).getStrAlbum());
             } catch (NullPointerException e) {
-                getFile.unricognizedFile(mp3);
-                continue;
+            getFile.unricognizedFile(mp3);
+            continue;
             }
-            }
-        System.out.println(GetFileList.listWithFileNamesUnricognized);
         }
+        System.out.println(GetFileList.listWithFileNamesUnricognized);
     }
+}
 

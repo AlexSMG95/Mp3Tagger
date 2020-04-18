@@ -1,15 +1,17 @@
-package TheAudioDB.Artist;
+package TheAudioDB.Album;
 
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
-public class RequestArtist {
+public class RequestAlbum {
     String artistName;
+    String albumName;
 
-    public String Request(String artistName) throws UnirestException {
+    public String Request(String albumId) throws UnirestException {
         this.artistName = artistName;
-        String json = Unirest.get("https://www.theaudiodb.com/api/v1/json/1/search.php?s={Artist name}")
-                .routeParam("Artist name", artistName)
+        this.albumName = albumName;
+        String json = Unirest.get("https://www.theaudiodb.com/api/v1/json/1/album.php?m={albumid}")
+                .routeParam("albumid", albumId)
                 .asString()
                 .getBody();
         return json;
@@ -22,4 +24,5 @@ public class RequestArtist {
     public String getArtistName() {
         return artistName;
     }
+
 }
