@@ -5,6 +5,7 @@ public class GetFileList {
 
     String path;
     public static ArrayList<File> listWithFileNames = new ArrayList<File>();
+    public static ArrayList<File> listWithFileNamesUnricognized = new ArrayList<File>();
 
     public GetFileList(String path){
         this.path = path;
@@ -20,6 +21,14 @@ public class GetFileList {
                 getListFiles(s.getAbsolutePath());
             }
         }
+    }
+
+    public void setFileList(ArrayList File) {
+        listWithFileNames = new ArrayList<File>(File);
+    }
+
+    public void unricognizedFile (File mp3) {
+        listWithFileNamesUnricognized.add(mp3);
     }
 
     public String getFileName (int file) {

@@ -4,8 +4,6 @@ import java.util.List;
 
 public class RootTrack {
 
-
-
     private List<Track> track = null;
 
     public List<Track> getTrack() {

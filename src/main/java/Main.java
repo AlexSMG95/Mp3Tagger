@@ -17,7 +17,7 @@ import org.jaudiotagger.tag.TagException;
 
 public class Main {
 
-    public static void main(String[] args) throws UnirestException, ReadOnlyFileException, IOException, TagException, InvalidAudioFrameException, CannotReadException, CannotWriteException {
+    public static void main(String[] args) throws UnirestException, ReadOnlyFileException, IOException, TagException, InvalidAudioFrameException, CannotReadException, CannotWriteException, NullPointerException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
         String path = scanner.nextLine();
@@ -28,9 +28,20 @@ public class Main {
             RequestArtist responseArtist = new RequestArtist();
             RequestTrack responseTrack = new RequestTrack();
             RootArtist rootArtist = gson.fromJson(responseArtist.Request(getFile.getArtistName(i)), RootArtist.class);
-            RootTrack rootTrack = gson.fromJson(responseTrack.Request( getFile.getArtistName(i), getFile.getTrackName(i)), RootTrack.class);
-            TagSetter.setTag(mp3, rootArtist.getArtists().get(0).getStrArtist(), rootTrack.getTrack().get(0).getStrTrack(), rootTrack.getTrack().get(0).getStrAlbum());
+            RootTrack rootTrack = gson.fromJson(responseTrack.Request(getFile.getArtistName(i), getFile.getTrackName(i)), RootTrack.class);
+            System.out.println(getFile.getArtistName(i));
+            System.out.println(getFile.getTrackName(i));
             i++;
+            try {
+                TagSetter.setTag(mp3, rootTrack.getTrack().get(0).getStrTrack(), rootTrack.getTrack().get(0).getStrArtist(), rootTrack.getTrack().get(0).getStrAlbum());
+                System.out.println(rootTrack.getTrack().get(0).getStrTrack());
+                System.out.println(rootTrack.getTrack().get(0).getStrArtist());
+            } catch (NullPointerException e) {
+                getFile.unricognizedFile(mp3);
+                continue;
+            }
+            }
+        System.out.println(GetFileList.listWithFileNamesUnricognized);
         }
     }
-}
+

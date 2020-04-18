@@ -22,7 +22,7 @@ import static org.jaudiotagger.tag.FieldKey.*;
 
 public class TagSetter {
 
-    public static void setTag (File mp3, String artistName, String trackName, String albumName)
+    public static void setTag (File mp3, String trackName, String artistName, String albumName)
             throws TagException, ReadOnlyFileException, CannotReadException, InvalidAudioFrameException,
             IOException, CannotWriteException {
 
