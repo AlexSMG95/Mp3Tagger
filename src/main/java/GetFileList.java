@@ -5,7 +5,8 @@ public class GetFileList {
 
     String path;
     public static ArrayList<File> listWithFileNames = new ArrayList<File>();
-    public static ArrayList<File> listWithFileNamesUnricognized = new ArrayList<File>();
+    public static ArrayList<File> listWithFileNamesUnTaggetName = new ArrayList<File>();
+    public static ArrayList<File> listWithFileNamesUnTaggetArt = new ArrayList<File>();
 
     public GetFileList(String path){
         this.path = path;
@@ -27,13 +28,19 @@ public class GetFileList {
         listWithFileNames = new ArrayList<File>(File);
     }
 
-    public void unricognizedFile (File mp3) {
-        listWithFileNamesUnricognized.add(mp3);
+    public void unTaggetFileName (File mp3) {
+        listWithFileNamesUnTaggetName.add(mp3);
+    }
+
+    public void unTaggetFileArt (File mp3) {
+        listWithFileNamesUnTaggetArt.add(mp3);
     }
 
     public String getFileName (int file) {
         String fileName = "";
-        for (int i = listWithFileNames.get(file).toString().lastIndexOf("\\") + 1; i < listWithFileNames.get(file).toString().length(); i++) {
+        for (int i = listWithFileNames.get(file).toString().lastIndexOf("\\") + 1
+                ; i < listWithFileNames.get(file).toString().length()
+                ; i++) {
             fileName += listWithFileNames.get(file).toString().charAt(i);
         }
         return fileName;
@@ -42,7 +49,9 @@ public class GetFileList {
     public String getArtistName (int file) {
         String artistName = "";
         getFileName(file);
-        for (int i = listWithFileNames.get(file).toString().lastIndexOf("\\") + 1; i < listWithFileNames.get(file).toString().lastIndexOf("-") - 1; i ++) {
+        for (int i = listWithFileNames.get(file).toString().lastIndexOf("\\") + 1
+                ; i < listWithFileNames.get(file).toString().lastIndexOf("-") - 1
+                ; i ++) {
             artistName += listWithFileNames.get(file).toString().charAt(i);
         }
         return artistName;
@@ -51,7 +60,9 @@ public class GetFileList {
     public String getTrackName (int file) {
         String TrackName = "";
         getFileName(file);
-        for (int i = listWithFileNames.get(file).toString().lastIndexOf("-") + 2; i < listWithFileNames.get(file).toString().lastIndexOf("."); i ++) {
+        for (int i = listWithFileNames.get(file).toString().lastIndexOf("-") + 2
+                ; i < listWithFileNames.get(file).toString().lastIndexOf(".")
+                ; i ++) {
             TrackName += listWithFileNames.get(file).toString().charAt(i);
         }
         return TrackName;

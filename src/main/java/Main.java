@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -17,7 +18,10 @@ import org.jaudiotagger.tag.TagException;
 
 public class Main {
 
-    public static void main(String[] args) throws UnirestException, ReadOnlyFileException, IOException, TagException, InvalidAudioFrameException, CannotReadException, CannotWriteException, NullPointerException, InterruptedException {
+    public static void main(String[] args)
+            throws UnirestException, ReadOnlyFileException
+            , IOException, TagException, InvalidAudioFrameException
+            , CannotReadException, CannotWriteException ,NullPointerException{
         Scanner scanner = new Scanner(System.in);
 
         String path = scanner.nextLine();
@@ -27,14 +31,26 @@ public class Main {
             try {
             Gson gson = new GsonBuilder().create();
             RequestTrack responseTrack = new RequestTrack();
-            RootTrack rootTrack = gson.fromJson(responseTrack.Request(getFile.getArtistName(i), getFile.getTrackName(i)), RootTrack.class);
-            TagSetterName.setTag(mp3, rootTrack.getTrack().get(0).getStrTrack(), rootTrack.getTrack().get(0).getStrArtist(), rootTrack.getTrack().get(0).getStrAlbum());
+            RequestAlbum responseAlbum = new RequestAlbum();
+            RootTrack rootTrack = gson.fromJson(responseTrack.Request(getFile.getArtistName(i)
+                                                , getFile.getTrackName(i))
+                                                , RootTrack.class);
+            RootAlbum rootAlbum = gson.fromJson(responseAlbum.Request(rootTrack.getTrack().get(0).getIdAlbum())
+                                                , RootAlbum.class);
+            TagSetter.setTag(mp3
+                            , rootTrack.getTrack().get(0).getStrTrack()
+                            , rootTrack.getTrack().get(0).getStrArtist()
+                            , rootTrack.getTrack().get(0).getStrAlbum()
+                            , rootAlbum.getAlbum().get(0).getStrAlbumThumb()
+                            , getFile.getPath() + rootAlbum.getAlbum().get(0).getStrAlbum() + ".jpg");
             } catch (NullPointerException e) {
-            getFile.unricognizedFile(mp3);
-            continue;
+                getFile.unTaggetFileName(mp3);
+            } catch (FileNotFoundException e) {
+                getFile.unTaggetFileArt(mp3);
             }
         }
-        System.out.println(GetFileList.listWithFileNamesUnricognized);
+        System.out.println(GetFileList.listWithFileNamesUnTaggetName);
+        System.out.println(GetFileList.listWithFileNamesUnTaggetArt);
     }
 }
 

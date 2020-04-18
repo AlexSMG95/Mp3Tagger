@@ -9,14 +9,18 @@ import org.jaudiotagger.tag.TagException;
 import org.jaudiotagger.tag.datatype.Artwork;
 import org.jaudiotagger.tag.id3.ID3v23Tag;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import static org.jaudiotagger.tag.FieldKey.*;
 
-public class TagSetterName {
+public class TagSetter {
 
-    public static void setTag (File mp3, String trackName, String artistName, String albumName)
+    public static void setTag (File mp3, String trackName, String artistName, String albumName, String url, String pathJpgName)
             throws TagException, ReadOnlyFileException, CannotReadException, InvalidAudioFrameException,
             IOException, CannotWriteException {
 
@@ -26,6 +30,26 @@ public class TagSetterName {
         newTag.setField(ALBUM, albumName);
         newTag.setField(ARTIST, artistName);
         newTag.setField(TITLE, trackName);
+        try {
+            URL art = new URL(url);
+            HttpURLConnection conn = (HttpURLConnection) art.openConnection();
+
+            BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
+            File f1 = new File(String.valueOf(pathJpgName));
+            FileOutputStream fw = new FileOutputStream(f1);
+
+            byte[] b = new byte[1024];
+            int count = 0;
+
+            while ((count=bis.read(b)) != -1)
+                fw.write(b,0,count);
+
+            fw.close();
+        } catch (IOException ex) {
+        }
+        Artwork artwork = Artwork.createArtworkFromFile(new File(pathJpgName));
+        newTag.addField(artwork);
+        newTag.setField(artwork);
         audioFile.commit();
     }
 }
