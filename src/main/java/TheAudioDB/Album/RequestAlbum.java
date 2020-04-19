@@ -8,8 +8,6 @@ public class RequestAlbum {
     String albumName;
 
     public String Request(String albumId) throws UnirestException {
-        this.artistName = artistName;
-        this.albumName = albumName;
         String json = Unirest.get("https://www.theaudiodb.com/api/v1/json/1/album.php?m={albumid}")
                 .routeParam("albumid", albumId)
                 .asString()

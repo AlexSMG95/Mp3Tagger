@@ -3,6 +3,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+import Deezer.RequestDeezer;
+import Deezer.RootDeezer;
+import Supporting.GetFileList;
+import Supporting.TagSetter;
 import TheAudioDB.Album.RequestAlbum;
 import TheAudioDB.Album.RootAlbum;
 import TheAudioDB.Track.RequestTrack;
@@ -49,8 +53,25 @@ public class Main {
                 getFile.unTaggetFileArt(mp3);
             }
         }
+//        GetFileList getFileList = new GetFileList(GetFileList.listWithFileNamesUnTaggetName);
+//        for (int i = 0; i < GetFileList.listWithFileNames.size(); i++)
+//        {
+//            File mp3 = new File(String.valueOf(GetFileList.listWithFileNames.get(i)));
+//
+//            Gson gson = new GsonBuilder().create();
+//
+//            try {
+//
+//                TagSetter.setTag(mp3, rootDeezer.getData().get(0).getTitle()
+//                        , rootDeezer.getData().get(0).getArtist().getName(), rootDeezer.getData().get(0).getAlbum().getTitle(), rootDeezer.getData().get(0).getAlbum().getCover_medium()
+//                        , getFile.getPath() + rootDeezer.getData().get(0).getAlbum().getTitle() + ".jpg");
+//            } catch (FileNotFoundException e) {
+//                continue;
+//            } catch (NullPointerException e) {
+//                continue;
+//            }
+//        }
         System.out.println(GetFileList.listWithFileNamesUnTaggetName);
-        System.out.println(GetFileList.listWithFileNamesUnTaggetArt);
     }
 }
 

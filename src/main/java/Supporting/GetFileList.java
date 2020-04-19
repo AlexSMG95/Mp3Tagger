@@ -1,3 +1,5 @@
+package Supporting;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -5,12 +7,22 @@ public class GetFileList {
 
     String path;
     public static ArrayList<File> listWithFileNames = new ArrayList<File>();
+    public static ArrayList<File> listWithFileArt = new ArrayList<File>();
     public static ArrayList<File> listWithFileNamesUnTaggetName = new ArrayList<File>();
     public static ArrayList<File> listWithFileNamesUnTaggetArt = new ArrayList<File>();
 
     public GetFileList(String path){
         this.path = path;
         getListFiles(path);
+    }
+
+    public GetFileList(ArrayList<File> listWithFileNamesUnTaggetName) {
+        getListFiles(listWithFileNamesUnTaggetName);
+
+    }
+
+    private void getListFiles(ArrayList<File> listWithFileNamesUnTaggetName) {
+        listWithFileNames = new ArrayList<File>(listWithFileNamesUnTaggetName);
     }
 
     public void getListFiles(String path) throws NullPointerException {
