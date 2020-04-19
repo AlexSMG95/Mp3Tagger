@@ -1,14 +1,12 @@
-package TheAudioDB.Album;
+package api.theaudiodb.dto;
 
 import java.util.List;
-import com.google.gson.annotations.Expose;
+
 import com.google.gson.annotations.SerializedName;
 
-public class RootAlbum {
+public class AlbumResponse {
 
-    @SerializedName("album")
-    @Expose
-    private List<Album> album = null;
+    @SerializedName("album") private List<Album> album = null;
 
     public List<Album> getAlbum() {
         return album;

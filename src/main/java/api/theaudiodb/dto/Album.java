@@ -1,4 +1,4 @@
-package TheAudioDB.Album;
+package api.theaudiodb.dto;
 
 import com.google.gson.annotations.SerializedName;
 

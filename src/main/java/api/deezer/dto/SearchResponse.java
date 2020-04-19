@@ -4,16 +4,16 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DeezerSearchResponse {
+public class SearchResponse {
 
-    @SerializedName("data") private List<DataDto> data = null;
+    @SerializedName("data") private List<SearchDataDto> data = null;
     @SerializedName("total") private Integer total;
 
-    public List<DataDto> getData() {
+    public List<SearchDataDto> getData() {
         return data;
     }
 
-    public void setData(List<DataDto> data) {
+    public void setData(List<SearchDataDto> data) {
         this.data = data;
     }
 

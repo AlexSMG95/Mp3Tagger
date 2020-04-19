@@ -6,7 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface ApiTheDb {
+public interface ApiTheAudioDb {
     final static String ENDPOINT = "https://www.theaudiodb.com/api/v1/json/1/";
 
     @GET(ENDPOINT + "album.php")

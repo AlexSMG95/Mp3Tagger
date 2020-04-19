@@ -1,4 +1,4 @@
-package api.dto;
+package api.deezer.dto;
 
 import com.google.gson.annotations.SerializedName;
 

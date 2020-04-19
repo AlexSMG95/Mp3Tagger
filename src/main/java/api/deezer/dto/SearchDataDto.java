@@ -2,7 +2,7 @@ package api.deezer.dto;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DataDto {
+public class SearchDataDto {
 
     @SerializedName("id") private Integer id;
     @SerializedName("readable") private Boolean readable;

@@ -1,8 +1,8 @@
-package TheAudioDB.Track;
+package api.theaudiodb.dto;
 
 import java.util.List;
 
-public class RootTrack {
+public class TrackResponse {
 
     private List<Track> track = null;
 

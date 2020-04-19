@@ -1,11 +1,16 @@
-package api;
+package api.deezer;
 
+import api.deezer.dto.AlbumDto;
+import api.deezer.dto.SearchResponse;
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiDeezer {
-    @GET("search") public void search(@Query("q") String query);
+    final static String DEEZER_ENDPOINT = "https://deezerdevs-deezer.p.rapidapi.com/";
 
-    @GET("album/{id}") public void getAlbum(@Path("id") int id);
+    @GET(DEEZER_ENDPOINT + "search") public Call<SearchResponse> search(@Query("q") String query);
+
+    @GET(DEEZER_ENDPOINT + "album/{id}") public Call<AlbumDto> getAlbum(@Path("id") int id);
 }

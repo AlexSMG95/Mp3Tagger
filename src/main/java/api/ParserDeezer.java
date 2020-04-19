@@ -1,4 +1,4 @@
-package Deezer;
+package api;
 
 import Supporting.ParserMain;
 
