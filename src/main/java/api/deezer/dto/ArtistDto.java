@@ -1,40 +1,19 @@
-package Deezer;
+package api.dto;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Artist {
+public class ArtistDto {
 
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-    @SerializedName("name")
-    @Expose
-    private String name;
-    @SerializedName("link")
-    @Expose
-    private String link;
-    @SerializedName("picture")
-    @Expose
-    private String picture;
-    @SerializedName("picture_small")
-    @Expose
-    private String picture_small;
-    @SerializedName("picture_medium")
-    @Expose
-    private String picture_medium;
-    @SerializedName("picture_big")
-    @Expose
-    private String picture_big;
-    @SerializedName("picture_xl")
-    @Expose
-    private String picture_xl;
-    @SerializedName("tracklist")
-    @Expose
-    private String tracklist;
-    @SerializedName("type")
-    @Expose
-    private String type;
+    @SerializedName("id") private Integer id;
+    @SerializedName("name") private String name;
+    @SerializedName("link") private String link;
+    @SerializedName("picture") private String picture;
+    @SerializedName("picture_small") private String picture_small;
+    @SerializedName("picture_medium") private String picture_medium;
+    @SerializedName("picture_big") private String picture_big;
+    @SerializedName("picture_xl") private String picture_xl;
+    @SerializedName("tracklist") private String tracklist;
+    @SerializedName("type") private String type;
 
     public Integer getId() {
         return id;

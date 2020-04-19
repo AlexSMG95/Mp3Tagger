@@ -1,55 +1,24 @@
-package Deezer;
+package api.deezer.dto;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Data {
+public class DataDto {
 
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-    @SerializedName("readable")
-    @Expose
-    private Boolean readable;
-    @SerializedName("title")
-    @Expose
-    private String title;
-    @SerializedName("title_short")
-    @Expose
-    private String title_short;
-    @SerializedName("title_version")
-    @Expose
-    private String title_version;
-    @SerializedName("link")
-    @Expose
-    private String link;
-    @SerializedName("duration")
-    @Expose
-    private Integer duration;
-    @SerializedName("rank")
-    @Expose
-    private Integer rank;
-    @SerializedName("explicit_lyrics")
-    @Expose
-    private Boolean explicit_lyrics;
-    @SerializedName("explicit_content_lyrics")
-    @Expose
-    private Integer explicit_content_lyrics;
-    @SerializedName("explicit_content_cover")
-    @Expose
-    private Integer explicit_content_cover;
-    @SerializedName("preview")
-    @Expose
-    private String preview;
-    @SerializedName("artist")
-    @Expose
-    private Artist artist;
-    @SerializedName("album")
-    @Expose
-    private Album album;
-    @SerializedName("type")
-    @Expose
-    private String type;
+    @SerializedName("id") private Integer id;
+    @SerializedName("readable") private Boolean readable;
+    @SerializedName("title") private String title;
+    @SerializedName("title_short") private String title_short;
+    @SerializedName("title_version") private String title_version;
+    @SerializedName("link") private String link;
+    @SerializedName("duration") private Integer duration;
+    @SerializedName("rank") private Integer rank;
+    @SerializedName("explicit_lyrics") private Boolean explicit_lyrics;
+    @SerializedName("explicit_content_lyrics") private Integer explicit_content_lyrics;
+    @SerializedName("explicit_content_cover") private Integer explicit_content_cover;
+    @SerializedName("preview") private String preview;
+    @SerializedName("artist") private ArtistDto artist;
+    @SerializedName("album") private AlbumDto album;
+    @SerializedName("type") private String type;
 
     public Integer getId() {
         return id;
@@ -147,19 +116,19 @@ public class Data {
         this.preview = preview;
     }
 
-    public Artist getArtist() {
+    public ArtistDto getArtist() {
         return artist;
     }
 
-    public void setArtist(Artist artist) {
+    public void setArtist(ArtistDto artist) {
         this.artist = artist;
     }
 
-    public Album getAlbum() {
+    public AlbumDto getAlbum() {
         return album;
     }
 
-    public void setAlbum(Album album) {
+    public void setAlbum(AlbumDto album) {
         this.album = album;
     }
 

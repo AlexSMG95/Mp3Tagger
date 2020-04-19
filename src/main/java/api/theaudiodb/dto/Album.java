@@ -1,187 +1,68 @@
 package TheAudioDB.Album;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Album {
 
-    @SerializedName("idAlbum")
-    @Expose
-    private String idAlbum;
-    @SerializedName("idArtist")
-    @Expose
-    private String idArtist;
-    @SerializedName("idLabel")
-    @Expose
-    private Object idLabel;
-    @SerializedName("strAlbum")
-    @Expose
-    private String strAlbum;
-    @SerializedName("strAlbumStripped")
-    @Expose
-    private String strAlbumStripped;
-    @SerializedName("strArtist")
-    @Expose
-    private String strArtist;
-    @SerializedName("strArtistStripped")
-    @Expose
-    private String strArtistStripped;
-    @SerializedName("intYearReleased")
-    @Expose
-    private String intYearReleased;
-    @SerializedName("strStyle")
-    @Expose
-    private String strStyle;
-    @SerializedName("strGenre")
-    @Expose
-    private String strGenre;
-    @SerializedName("strLabel")
-    @Expose
-    private Object strLabel;
-    @SerializedName("strReleaseFormat")
-    @Expose
-    private String strReleaseFormat;
-    @SerializedName("intSales")
-    @Expose
-    private String intSales;
-    @SerializedName("strAlbumThumb")
-    @Expose
-    private String strAlbumThumb;
-    @SerializedName("strAlbumThumbHQ")
-    @Expose
-    private Object strAlbumThumbHQ;
-    @SerializedName("strAlbumThumbBack")
-    @Expose
-    private Object strAlbumThumbBack;
-    @SerializedName("strAlbumCDart")
-    @Expose
-    private String strAlbumCDart;
-    @SerializedName("strAlbumSpine")
-    @Expose
-    private Object strAlbumSpine;
-    @SerializedName("strAlbum3DCase")
-    @Expose
-    private Object strAlbum3DCase;
-    @SerializedName("strAlbum3DFlat")
-    @Expose
-    private Object strAlbum3DFlat;
-    @SerializedName("strAlbum3DFace")
-    @Expose
-    private Object strAlbum3DFace;
-    @SerializedName("strAlbum3DThumb")
-    @Expose
-    private Object strAlbum3DThumb;
-    @SerializedName("strDescriptionEN")
-    @Expose
-    private String strDescriptionEN;
-    @SerializedName("strDescriptionDE")
-    @Expose
-    private String strDescriptionDE;
-    @SerializedName("strDescriptionFR")
-    @Expose
-    private String strDescriptionFR;
-    @SerializedName("strDescriptionCN")
-    @Expose
-    private Object strDescriptionCN;
-    @SerializedName("strDescriptionIT")
-    @Expose
-    private Object strDescriptionIT;
-    @SerializedName("strDescriptionJP")
-    @Expose
-    private Object strDescriptionJP;
-    @SerializedName("strDescriptionRU")
-    @Expose
-    private Object strDescriptionRU;
-    @SerializedName("strDescriptionES")
-    @Expose
-    private Object strDescriptionES;
-    @SerializedName("strDescriptionPT")
-    @Expose
-    private Object strDescriptionPT;
-    @SerializedName("strDescriptionSE")
-    @Expose
-    private Object strDescriptionSE;
-    @SerializedName("strDescriptionNL")
-    @Expose
-    private Object strDescriptionNL;
-    @SerializedName("strDescriptionHU")
-    @Expose
-    private Object strDescriptionHU;
-    @SerializedName("strDescriptionNO")
-    @Expose
-    private Object strDescriptionNO;
-    @SerializedName("strDescriptionIL")
-    @Expose
-    private Object strDescriptionIL;
-    @SerializedName("strDescriptionPL")
-    @Expose
-    private Object strDescriptionPL;
-    @SerializedName("intLoved")
-    @Expose
-    private Object intLoved;
-    @SerializedName("intScore")
-    @Expose
-    private Object intScore;
-    @SerializedName("intScoreVotes")
-    @Expose
-    private Object intScoreVotes;
-    @SerializedName("strReview")
-    @Expose
-    private String strReview;
-    @SerializedName("strMood")
-    @Expose
-    private String strMood;
-    @SerializedName("strTheme")
-    @Expose
-    private Object strTheme;
-    @SerializedName("strSpeed")
-    @Expose
-    private String strSpeed;
-    @SerializedName("strLocation")
-    @Expose
-    private Object strLocation;
-    @SerializedName("strMusicBrainzID")
-    @Expose
-    private String strMusicBrainzID;
-    @SerializedName("strMusicBrainzArtistID")
-    @Expose
-    private String strMusicBrainzArtistID;
-    @SerializedName("strAllMusicID")
-    @Expose
-    private Object strAllMusicID;
-    @SerializedName("strBBCReviewID")
-    @Expose
-    private Object strBBCReviewID;
-    @SerializedName("strRateYourMusicID")
-    @Expose
-    private Object strRateYourMusicID;
-    @SerializedName("strDiscogsID")
-    @Expose
-    private Object strDiscogsID;
-    @SerializedName("strWikidataID")
-    @Expose
-    private Object strWikidataID;
-    @SerializedName("strWikipediaID")
-    @Expose
-    private Object strWikipediaID;
-    @SerializedName("strGeniusID")
-    @Expose
-    private Object strGeniusID;
-    @SerializedName("strLyricWikiID")
-    @Expose
-    private Object strLyricWikiID;
-    @SerializedName("strMusicMozID")
-    @Expose
-    private Object strMusicMozID;
-    @SerializedName("strItunesID")
-    @Expose
-    private Object strItunesID;
-    @SerializedName("strAmazonID")
-    @Expose
-    private Object strAmazonID;
-    @SerializedName("strLocked")
-    @Expose
-    private String strLocked;
+    @SerializedName("idAlbum") private String idAlbum;
+    @SerializedName("idArtist") private String idArtist;
+    @SerializedName("idLabel") private Object idLabel;
+    @SerializedName("strAlbum") private String strAlbum;
+    @SerializedName("strAlbumStripped") private String strAlbumStripped;
+    @SerializedName("strArtist") private String strArtist;
+    @SerializedName("strArtistStripped") private String strArtistStripped;
+    @SerializedName("intYearReleased") private String intYearReleased;
+    @SerializedName("strStyle") private String strStyle;
+    @SerializedName("strGenre") private String strGenre;
+    @SerializedName("strLabel") private Object strLabel;
+    @SerializedName("strReleaseFormat") private String strReleaseFormat;
+    @SerializedName("intSales") private String intSales;
+    @SerializedName("strAlbumThumb") private String strAlbumThumb;
+    @SerializedName("strAlbumThumbHQ") private Object strAlbumThumbHQ;
+    @SerializedName("strAlbumThumbBack") private Object strAlbumThumbBack;
+    @SerializedName("strAlbumCDart") private String strAlbumCDart;
+    @SerializedName("strAlbumSpine") private Object strAlbumSpine;
+    @SerializedName("strAlbum3DCase") private Object strAlbum3DCase;
+    @SerializedName("strAlbum3DFlat") private Object strAlbum3DFlat;
+    @SerializedName("strAlbum3DFace") private Object strAlbum3DFace;
+    @SerializedName("strAlbum3DThumb") private Object strAlbum3DThumb;
+    @SerializedName("strDescriptionEN") private String strDescriptionEN;
+    @SerializedName("strDescriptionDE") private String strDescriptionDE;
+    @SerializedName("strDescriptionFR") private String strDescriptionFR;
+    @SerializedName("strDescriptionCN") private Object strDescriptionCN;
+    @SerializedName("strDescriptionIT") private Object strDescriptionIT;
+    @SerializedName("strDescriptionJP") private Object strDescriptionJP;
+    @SerializedName("strDescriptionRU") private Object strDescriptionRU;
+    @SerializedName("strDescriptionES") private Object strDescriptionES;
+    @SerializedName("strDescriptionPT") private Object strDescriptionPT;
+    @SerializedName("strDescriptionSE") private Object strDescriptionSE;
+    @SerializedName("strDescriptionNL") private Object strDescriptionNL;
+    @SerializedName("strDescriptionHU") private Object strDescriptionHU;
+    @SerializedName("strDescriptionNO") private Object strDescriptionNO;
+    @SerializedName("strDescriptionIL") private Object strDescriptionIL;
+    @SerializedName("strDescriptionPL") private Object strDescriptionPL;
+    @SerializedName("intLoved") private Object intLoved;
+    @SerializedName("intScore") private Object intScore;
+    @SerializedName("intScoreVotes") private Object intScoreVotes;
+    @SerializedName("strReview") private String strReview;
+    @SerializedName("strMood") private String strMood;
+    @SerializedName("strTheme") private Object strTheme;
+    @SerializedName("strSpeed") private String strSpeed;
+    @SerializedName("strLocation") private Object strLocation;
+    @SerializedName("strMusicBrainzID") private String strMusicBrainzID;
+    @SerializedName("strMusicBrainzArtistID") private String strMusicBrainzArtistID;
+    @SerializedName("strAllMusicID") private Object strAllMusicID;
+    @SerializedName("strBBCReviewID") private Object strBBCReviewID;
+    @SerializedName("strRateYourMusicID") private Object strRateYourMusicID;
+    @SerializedName("strDiscogsID") private Object strDiscogsID;
+    @SerializedName("strWikidataID") private Object strWikidataID;
+    @SerializedName("strWikipediaID") private Object strWikipediaID;
+    @SerializedName("strGeniusID") private Object strGeniusID;
+    @SerializedName("strLyricWikiID") private Object strLyricWikiID;
+    @SerializedName("strMusicMozID") private Object strMusicMozID;
+    @SerializedName("strItunesID") private Object strItunesID;
+    @SerializedName("strAmazonID") private Object strAmazonID;
+    @SerializedName("strLocked") private String strLocked;
 
     public String getIdAlbum() {
         return idAlbum;
