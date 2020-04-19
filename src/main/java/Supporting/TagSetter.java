@@ -48,6 +48,7 @@ public class TagSetter {
 
             fw.close();
         } catch (IOException ex) {
+            //TODO нигер тебя ждет сук!!!
         }
         Artwork artwork = Artwork.createArtworkFromFile(new File(pathJpgName));
         newTag.addField(artwork);

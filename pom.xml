@@ -20,9 +20,16 @@
         </plugins>
     </build>
     <dependencies>
+        <!-- Клиент для Http запросов -->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
+            <version>4.5.0</version>
+        </dependency>
+        <!-- Логирование всех запросов в консоль -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>logging-interceptor</artifactId>
             <version>4.5.0</version>
         </dependency>
         <dependency>
