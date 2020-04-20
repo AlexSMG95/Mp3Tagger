@@ -18,6 +18,7 @@ public class GetFileList {
 
     public GetFileList(ArrayList<File> listWithFileNamesUnTaggetName, String path){
         listWithFileNames = new ArrayList<File>(listWithFileNamesUnTaggetName);
+        listWithFileNamesUnTaggetName.clear();
         this.path = path;
     }
 
