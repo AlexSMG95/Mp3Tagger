@@ -16,10 +16,11 @@ public class GetFileList {
         getListFiles(path);
     }
 
-    public GetFileList(ArrayList<File> listWithFileNamesUnTaggetName) {
-        getListFiles(listWithFileNamesUnTaggetName);
-
+    public GetFileList(ArrayList<File> listWithFileNamesUnTaggetName, String path){
+        listWithFileNames = new ArrayList<File>(listWithFileNamesUnTaggetName);
+        this.path = path;
     }
+
 
     private void getListFiles(ArrayList<File> listWithFileNamesUnTaggetName) {
         listWithFileNames = new ArrayList<File>(listWithFileNamesUnTaggetName);

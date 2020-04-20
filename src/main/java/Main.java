@@ -1,6 +1,7 @@
 import Supporting.GetFileList;
 import Supporting.TagSetter;
 import api.ApiClient;
+import api.deezer.dto.SearchResponse;
 import api.theaudiodb.dto.AlbumResponse;
 import api.theaudiodb.dto.TrackResponse;
 
@@ -85,7 +86,43 @@ public class Main {
                 e.printStackTrace();
             }
         }
+        System.out.println(GetFileList.listWithFileNamesUnTaggetName);
+        getFile = new GetFileList(GetFileList.listWithFileNamesUnTaggetName, path);
 
+        for (int i = 0; i < GetFileList.listWithFileNames.size(); i++) {
+            File mp3 = new File(String.valueOf(GetFileList.listWithFileNames.get(i)));
+
+            try {
+                String trackName;
+                String artistName;
+                String albumName;
+                String albumPicture;
+                String albumPicturePath;
+
+                //TODO Так делать сука плохо!!!
+                SearchResponse searchResponse = ApiClient
+                        .apiDeezer
+                        .search(getFile.getFileName(i).replaceAll(".mp3", ""))
+                        .execute()
+                        .body();
+                System.out.println(getFile.getFileName(i).replaceAll(".mp3", ""));
+
+                trackName = searchResponse.getData().get(0).getTitle();
+                artistName = searchResponse.getData().get(0).getArtist().getName();
+                albumName = searchResponse.getData().get(0).getAlbum().getTitle();
+                albumPicture = searchResponse.getData().get(0).getAlbum().getCover_medium();
+                albumPicturePath = getFile.getPath() + searchResponse.getData().get(0).getAlbum().getTitle() + ".jpg";
+
+                TagSetter.setTag(mp3, trackName, artistName, albumName, albumPicture, albumPicturePath);
+
+            } catch (NullPointerException e) {
+                getFile.unTaggetFileName(mp3);
+            } catch (FileNotFoundException e) {
+                getFile.unTaggetFileArt(mp3);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
 //        GetFileList getFileList = new GetFileList(GetFileList.listWithFileNamesUnTaggetName);
 //        for (int i = 0; i < GetFileList.listWithFileNames.size(); i++)

@@ -7,18 +7,19 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import java.util.concurrent.TimeUnit;
+
 public class ApiClient {
     final static String DEEZER_ENDPOINT = "https://deezerdevs-deezer.p.rapidapi.com/";
     final static String THE_AUDIO_DB_ENDPOINT = "https://www.theaudiodb.com/api/v1/json/1/";
 
+
     //TODO добавить interceptor для добавления хедеров
     private final static OkHttpClient client = new OkHttpClient
             .Builder()
-            //.addInterceptor()
-            .addInterceptor(new HttpLoggingInterceptor())
+            .writeTimeout(100, TimeUnit.MILLISECONDS)
+            .addInterceptor(new Headerinterceptor())
             .build();
-    //            .addHeader("x-rapidapi-host", "deezerdevs-deezer.p.rapidapi.com")
-//            .addHeader("x-rapidapi-key", "b73a9146dcmshb911597d909a091p12e882jsnf27a31953b60")
 
     private final static Retrofit.Builder retrofitBuilder = new Retrofit
             .Builder()
