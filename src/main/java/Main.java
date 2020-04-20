@@ -58,12 +58,10 @@ public class Main {
                 e.printStackTrace();
             }
         }
-        System.out.println(GetFileList.listWithFileNamesUnTaggetName);
         getFile = new GetFileList(GetFileList.listWithFileNamesUnTaggetName, path);
 
         for (int i = 0; i < GetFileList.listWithFileNames.size(); i++) {
             File mp3 = new File(String.valueOf(GetFileList.listWithFileNames.get(i)));
-
             try {
                 String trackName;
                 String artistName;
@@ -88,16 +86,10 @@ public class Main {
 
                 TagSetter.setTag(mp3, trackName, artistName, albumName, albumPicture, albumPicturePath);
 
-            } catch (NullPointerException e) {
-                getFile.unTaggetFileName(mp3);
-            } catch (FileNotFoundException e) {
-                getFile.unTaggetFileArt(mp3);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        System.out.println(GetFileList.listWithFileNamesUnTaggetName);
-        System.out.println(GetFileList.listWithFileNamesUnTaggetName.size());
     }
 }
 
